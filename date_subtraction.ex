@@ -1,4 +1,13 @@
 defmodule DateSubtract do
+  @doc """
+    This module will give exactly earlier date you want from asking date. Eg:
+    iex> DateSubtract.date_subtract("2018-05-28", 10)
+      #Ecto.Date<2018-05-18>
+    iex> DateSubtract.date_subtract("2018-05-28", 10) |> to_string()
+      "2018-05-18"
+    iex> DateSubtract.date_subtract("2018-05-28", 100) |> to_string()
+      "2018-02-17"
+  """
   def date_subtract(date, no_of_days, type \\ :date) do
     date = Helper.convert_date_to_datetime(date)
       if is_integer(no_of_days) do
